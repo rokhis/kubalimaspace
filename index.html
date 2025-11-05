@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KUBALIMA</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>📘 KUBALIMA - Kubus Balok Limas Prisma</h1>
+    <h2>Cahya Sabilla ( NIM ) | Nopal ( NIM )</h2>
+  </header>
+
+  <nav>
+    <button id="btnMateri">Materi</button>
+    <button id="btnJaringGame">Tantangan Jaring-Jaring</button> 
+    <button id="btnQuiz">Uji Pemahaman</button> 
+  </nav>
+
+  <main>
+    <section id="materi" class="active">
+      <h2>🔹 Materi Bangun Ruang 3D</h2>
+      <p>Pilih bangun ruang di bawah untuk melihat bentuk 3D interaktif dan jaring-jaringnya.</p>
+
+      <div id="shapeSelector">
+        <button class="shape-btn" data-shape="Kubus">Kubus</button>
+        <button class="shape-btn" data-shape="Balok">Balok</button>
+        <button class="shape-btn" data-shape="Prisma">Prisma</button>
+        <button class="shape-btn" data-shape="Limas">Limas</button>
+      </div>
+
+      <div id="scene-container" class="hidden"></div>
+      
+      <div id="action-buttons" class="hidden">
+        <button id="btnJaring" class="btn">🔄 Lihat Jaring-Jaring</button>
+      </div>
+    </section>
+    
+    <section id="jaringGame">
+        <h2>📐 Tantangan Jaring-Jaring Bangun Ruang</h2>
+        <p>Pilih bentuk 2D, lalu klik **Titik Utama (kuning)** untuk memulai, atau klik sisi ubin yang sudah terpasang untuk menyusun jaring-jaring.</p>
+
+        <div id="editorControls">
+            <div id="shapePalette">
+                <button class="palette-shape-btn" data-shape-type="Persegi">Persegi</button>
+                <button class="palette-shape-btn" data-shape-type="PersegiPanjang">Persegi Panjang</button>
+                <button class="palette-shape-btn" data-shape-type="Segitiga">Segitiga</button>
+            </div>
+
+            <div id="currentToolInfo">
+                Alat Aktif: <span id="activeShapeName">Persegi</span>
+            </div>
+        </div>
+
+        <div id="game-container">
+            <div id="net-board"></div>
+
+            <div id="game-actions">
+                <button id="btnLipat" class="btn game-btn">🪄 Lipat dan Cek!</button>
+                <button id="btnReset" class="btn game-btn reset-btn">🗑️ Reset Papan</button>
+            </div>
+            
+            <div id="game-message"></div>
+            
+            <div id="result-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn" onclick="document.getElementById('result-modal').style.display='none'">&times;</span>
+                    <h3 id="modal-title"></h3>
+                    <p id="modal-body"></p>
+                    <button class="btn" style="background: var(--color-primary); color: white; float: right;" onclick="document.getElementById('result-modal').style.display='none'">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quiz">
+        <h2>🧠 Uji Pemahaman: Ciri Bangun Ruang</h2>
+        <div id="quiz-container">
+            <div id="question-text"></div>
+            <div id="answer-buttons" class="answer-grid"></div>
+            <button id="btnNext" class="btn hidden">Lanjut ➡️</button>
+            <div id="quiz-result" style="margin-top: 15px; font-weight: 700;"></div>
+        </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
